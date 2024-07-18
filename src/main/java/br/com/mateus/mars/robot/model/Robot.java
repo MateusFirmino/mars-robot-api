@@ -15,20 +15,12 @@ public class Robot {
   }
 
   public void processCommands(String commands) {
-    commands = commands.toUpperCase();
     for (char command : commands.toCharArray()) {
       switch (command) {
-        case 'L':
-          this.turnLeft();
-          break;
-        case 'R':
-          this.turnRight();
-          break;
-        case 'M':
-          this.move();
-          break;
-        default:
-          throw new IllegalArgumentException("Invalid command: " + command);
+        case 'L' -> this.turnLeft();
+        case 'R' -> this.turnRight();
+        case 'M' -> this.move();
+        default -> throw new IllegalArgumentException("Invalid command: " + command);
       }
     }
   }
@@ -43,36 +35,14 @@ public class Robot {
 
   private void move() {
     switch (this.direction) {
-      case N:
-        if (this.y < MAX_Y) {
-          this.y++;
-        } else {
-          throw new IllegalArgumentException("Move out of bounds");
-        }
-        break;
-      case E:
-        if (this.x < MAX_X) {
-          this.x++;
-        } else {
-          throw new IllegalArgumentException("Move out of bounds");
-        }
-        break;
-      case S:
-        if (this.y > 0) {
-          this.y--;
-        } else {
-          throw new IllegalArgumentException("Move out of bounds");
-        }
-        break;
-      case W:
-        if (this.x > 0) {
-          this.x--;
-        } else {
-          throw new IllegalArgumentException("Move out of bounds");
-        }
-        break;
-      default:
-        throw new IllegalArgumentException("Invalid direction");
+      case N -> this.y++;
+      case E -> this.x++;
+      case S -> this.y--;
+      case W -> this.x--;
+      default -> throw new IllegalArgumentException("Invalid direction");
+    }
+    if (this.y < 0 || this.y > MAX_Y || this.x < 0 || this.x > MAX_X) {
+      throw new IllegalArgumentException("Move out of bounds");
     }
   }
 
