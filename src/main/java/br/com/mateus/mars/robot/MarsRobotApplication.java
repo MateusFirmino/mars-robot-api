@@ -1,4 +1,4 @@
-package br.com.mateus.mars_robot;
+package br.com.mateus.mars.robot;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

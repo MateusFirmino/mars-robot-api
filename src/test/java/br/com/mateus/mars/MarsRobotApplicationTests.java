@@ -1,4 +1,4 @@
-package br.com.mateus.mars_robot;
+package br.com.mateus.mars;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
