@@ -1,8 +1,5 @@
 ## Desafio: Controle de Robôs em Marte 🚀
 
-## Objetivo
-Demonstrar experiência e conhecimento em desenvolvimento de software, evidenciando habilidades de resolução de problemas em situações reais.
-
 ## Descrição do Problema
 A NASA precisa de um sistema para controlar robôs exploradores em Marte. O terreno marciano, de formato retangular, deve ser totalmente explorado pelos robôs, que capturam e enviam imagens da região para a Terra.
 
