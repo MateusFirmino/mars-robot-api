@@ -16,7 +16,7 @@ public class RobotController {
   public ResponseEntity<String> moveRobot(@PathVariable String commands) {
     try {
       Robot robot = new Robot();
-      robot.processCommands(commands);
+      robot.processCommands(commands.toUpperCase());
       return ResponseEntity.ok(robot.toString());
     }
     catch (IllegalArgumentException e) {
