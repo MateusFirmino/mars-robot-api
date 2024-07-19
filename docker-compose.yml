@@ -2,6 +2,8 @@ version: '3.8'
 
 services:
   marsrobot:
+    container_name: mars-robot
+    image: br.com.mateus/robot-mars:1.0.0
     build: .
     ports:
       - "8080:8080"

@@ -1,7 +1,7 @@
 FROM maven:3.9.7-amazoncorretto-21 AS build
-COPY src /app/src
-COPY /pom.xml /app
-RUN mvn -f /app/pom.xml clean package -Dmaven.test.skip
+WORKDIR /app
+COPY . .
+RUN mvn clean package
 
 FROM amazoncorretto:21
 EXPOSE 8080
