@@ -16,6 +16,14 @@ Cada robô é posicionado usando coordenadas cartesianas (x, y) e uma orientaç�
 ## Objetivo do Programa
 Desenvolver um software que permita aos engenheiros da NASA enviar comandos aos robôs e determinar suas posições finais após a execução dos comandos. O software será testado para garantir o comportamento correto antes da implementação real em Marte.
 
+## Deploy
+
+O projeto está dockerizado e pode ser executado com o comando abaixo:
+
+```bash
+docker compose up -d --build
+```
+
 ### Endpoints
 
 #### Requisição com Movimento com rotação para direita:
