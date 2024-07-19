@@ -14,7 +14,7 @@ Cada robô é posicionado usando coordenadas cartesianas (x, y) e uma orientaç�
 Para um robô na posição inicial (0, 0, N):
 Comandos "MML" o moverão para a posição (0, 2, W).
 
-![robot](docs/robots.png)
+![robot](docs/robot.png)
 
 ## Objetivo do Programa
 Desenvolver um software que permita aos engenheiros da NASA enviar comandos aos robôs e determinar suas posições finais após a execução dos comandos. O software será testado para garantir o comportamento correto antes da implementação real em Marte.
