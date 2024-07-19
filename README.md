@@ -1,4 +1,4 @@
-## Desafio: Controle de Robôs em Marte
+## Desafio: Controle de Robôs em Marte 🚀
 
 ## Objetivo
 Demonstrar experiência e conhecimento em desenvolvimento de software, evidenciando habilidades de resolução de problemas em situações reais.
@@ -8,11 +8,11 @@ A NASA precisa de um sistema para controlar robôs exploradores em Marte. O terr
 
 Cada robô é posicionado usando coordenadas cartesianas (x, y) e uma orientação (NORTH, SOUTH, EAST, WEST). Os comandos para mover os robôs são enviados como strings contendo 'L', 'R' e 'M':
 
-'L' e 'R' rotacionam o robô 90 graus à esquerda ou à direita, respectivamente.
-'M' move o robô uma posição à frente na direção em que está orientado.
+- 'L' e 'R' rotacionam o robô 90 graus à esquerda ou à direita, respectivamente.
+- 'M' move o robô uma posição à frente na direção em que está orientado.
 ## Exemplo
-Para um robô na posição inicial (0, 0, N):
-Comandos "MML" o moverão para a posição (0, 2, W).
+- Para um robô na posição inicial (0, 0, N):
+- Comandos "MML" o moverão para a posição (0, 2, W).
 
 ![robot](docs/robot.png)
 
@@ -25,7 +25,7 @@ Desenvolver um software que permita aos engenheiros da NASA enviar comandos aos 
 
 - Request 
 ```
-curl -s --request POST http://localhost:8080/rest/mars/MMRMMRMM
+POST http://localhost:8080/rest/mars/MMRMMRMM
 ```
 - Response Payload
 
@@ -37,7 +37,7 @@ curl -s --request POST http://localhost:8080/rest/mars/MMRMMRMM
 
 - Request 
 ```
- curl -s --request POST http://localhost:8080/rest/mars/MML
+POST http://localhost:8080/rest/mars/MML
 ```
 - Response Payload
 
@@ -49,7 +49,7 @@ curl -s --request POST http://localhost:8080/rest/mars/MMRMMRMM
 
 - Request 
 ```
- curl -s --request POST http://localhost:8080/rest/mars/AAA
+POST http://localhost:8080/rest/mars/AAA
 ```
 - Response Payload
 
@@ -62,7 +62,7 @@ body: Invalid command: A
 
 - Request
 ```
-curl -s --request POST http://localhost:8080/rest/mars/MMMMMMMMMMMMMMMMMMMMMMMM
+POST http://localhost:8080/rest/mars/MMMMMMMMMMMMMMMMMMMMMMMM
 ```
 - Response Payload
 
