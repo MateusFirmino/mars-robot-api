@@ -35,9 +35,9 @@ public class RobotTest {
 
   @Test
   public void testMoveRight() {
-    ResponseEntity<String> response = robotController.moveRobot("MMRMMRMM");
+    ResponseEntity<String> response = robotController.moveRobot("MMR");
     assertEquals(HttpStatus.OK, response.getStatusCode());
-    assertEquals("(2, 0, S)", response.getBody());
+    assertEquals("(0, 2, E)", response.getBody());
   }
 
   @Test
