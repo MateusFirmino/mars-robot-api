@@ -12,8 +12,6 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-
 import java.util.stream.Stream;
 
 @SpringBootTest
@@ -24,7 +22,7 @@ public class RobotTest {
 
   @ParameterizedTest
   @MethodSource("validCommandProvider")
-  void test1(
+  void testValidCommand(
     String command,
     String result
   ) {
@@ -36,21 +34,45 @@ public class RobotTest {
   @Test
   public void testMoveRight() {
     ResponseEntity<String> response = robotController.moveRobot("MMR");
-    assertEquals(HttpStatus.OK, response.getStatusCode());
-    assertEquals("(0, 2, E)", response.getBody());
+    Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    Assertions.assertThat(response.getBody()).isEqualTo("(0, 2, E)");
   }
 
   @Test
   public void testMoveLeft() {
     ResponseEntity<String> response = robotController.moveRobot("MML");
-    assertEquals(HttpStatus.OK, response.getStatusCode());
-    assertEquals("(0, 2, W)", response.getBody());
+    Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    Assertions.assertThat(response.getBody()).isEqualTo("(0, 2, W)");
+  }
+
+  @Test
+  public void testOutOfBounds() {
+    ResponseEntity<String> response = robotController.moveRobot("MMMMMMMMMMMMMMMMMMMMMMMMMM");
+    Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+    Assertions.assertThat(response.getBody()).isEqualTo("Move out of bounds");
+  }
+
+  @Test
+  public void testInvalidCommand() {
+    ResponseEntity<String> response = robotController.moveRobot("AAA");
+    Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.BAD_REQUEST);
+    Assertions.assertThat(response.getBody()).isEqualTo("Invalid command: A");
+  }
+
+  @Test
+  public void testMixedCaseCommands() {
+    ResponseEntity<String> response = robotController.moveRobot("MmRmmLm");
+    Assertions.assertThat(response.getStatusCode()).isEqualTo(HttpStatus.OK);
+    Assertions.assertThat(response.getBody()).isEqualTo("(2, 3, N)");
   }
 
   static Stream<Arguments> validCommandProvider() {
     return Stream.of(
       Arguments.of("MMRMMRMM", "(2, 0, S)"),
-      Arguments.of("MML", "(0, 2, W)")
+      Arguments.of("MML", "(0, 2, W)"),
+      Arguments.of("MMRMMLM","(2, 3, N)"),
+      Arguments.of("MML","(0, 2, W)")
+
     );
   }
 
